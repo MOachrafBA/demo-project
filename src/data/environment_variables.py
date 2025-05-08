@@ -22,3 +22,13 @@ response = client.chat.completions.create(
     messages=[{"role": "user", "content": "Hallo!"}],
 )
 print(response.choices[0].message.content)
+
+# Test the connection by sending a simple message to the model
+response = client.chat.completions.create(
+    model="GPT-4.1",  # Aus dem Azure-Portal holen
+    messages=[
+        {"role": "system", "content": "You are a poetic assistant."},
+        {"role": "user", "content": "Write a poem about the sea."},
+    ],
+)
+print(response.choices[0].message.content)
